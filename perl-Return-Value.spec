@@ -16,6 +16,7 @@ Source:         http://www.cpan.org/modules/by-module/Return/%{module}-%{up_vers
 BuildRequires:  perl-devel
 %endif
 BuildArch:      noarch
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 Polymorphic return values are really useful. Often, we just want to know if

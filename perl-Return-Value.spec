@@ -1,22 +1,21 @@
-%define module      Return-Value
-%define name        perl-%{module}
-%define version     1.30.2
-%define up_version  1.302
-%define release     %mkrel 4
+%define upstream_name    Return-Value
+%define upstream_version 1.666001
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
+Name:           perl-%{upstream_name}
+Version:        %perl_convert_version %{upstream_version}
+Release:        %mkrel 1
+
 Summary:        Polymorphic Return Values
-License:        GPL or Artistic
+License:        GPL+ or Artistic
 Group:          Development/Perl
-URL:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Return/%{module}-%{up_version}.tar.bz2
+URL:            http://search.cpan.org/dist/%{upstream_name}
+Source0:        http://www.cpan.org/modules/by-module/Return/%{upstream_name}-%{upstream_version}.tar.gz
+
 %if %{mdkversion} < 1010
 BuildRequires:  perl-devel
 %endif
-BuildArch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Polymorphic return values are really useful. Often, we just want to know if
@@ -27,7 +26,7 @@ every single return value, but we do want to check error conditions in our code
 because that's what good programmers do.
 
 %prep
-%setup -q -n %{module}-%{up_version} 
+%setup -q -n %{upstream_name}-%{upstream_version} 
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor

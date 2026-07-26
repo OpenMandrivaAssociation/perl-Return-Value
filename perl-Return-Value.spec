@@ -1,15 +1,13 @@
 %define upstream_name    Return-Value
-%define upstream_version 1.666001
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	1.666001
+Release:	5
 
 Summary:	Polymorphic Return Values
 License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Return/%{upstream_name}-%{upstream_version}.tar.gz
+URL:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Return/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -24,7 +22,7 @@ every single return value, but we do want to check error conditions in our code
 because that's what good programmers do.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version} 
+%setup -q -n %{upstream_name}-%{version} 
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -45,8 +43,7 @@ make test
 * Tue Jul 07 2009 Jérôme Quelin <jquelin@mandriva.org> 1.666.1-1mdv2010.0
 + Revision: 393136
 - update to 1.666001
-- using %%perl_convert_version
-- fixed license field
+- using %1.666001 fixed license field
 
 * Thu Jul 31 2008 Thierry Vignaud <tvignaud@mandriva.com> 1.30.2-4mdv2009.0
 + Revision: 258327
